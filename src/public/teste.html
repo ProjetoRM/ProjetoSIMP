@@ -1,19 +1,67 @@
 <!DOCTYPE html>
-<html lang="PT-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teste pdf</title>
+    <title>Adicionar Assinatura em PDF</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        h1 {
+            color: #007bff;
+        }
+        mulário */
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+ 
+        button[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <h2>Upload e Assinatura de PDF</h2>
-
+    <h1>Adicionar Assinatura em PDF</h1>
     <form action="/adicionar-assinatura" method="POST" enctype="multipart/form-data">
-    
-        <input type="file" name="pdfFile" accept=".pdf" required>
-
-        <button type="submit">Assinar PDF</button>
-        
+        <label for="pdfFile">Selecione um arquivo PDF:</label>
+        <input type="file" id="pdfFile" name="pdfFile" accept=".pdf">
+        <br>
+        <br>
+        <button type="submit">Adicionar Assinatura</button>
     </form>
 </body>
 </html>

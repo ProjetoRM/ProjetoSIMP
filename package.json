@@ -1,0 +1,23 @@
+{
+  "type": "commonjs",
+  "name": "projetosimp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Validadores(email,senha).js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@pdf-lib/fontkit": "^1.1.1",
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "fontkit": "^2.0.2",
+    "fs": "^0.0.1-security",
+    "multer": "^1.4.5-lts.1",
+    "node-fetch": "^3.3.2",
+    "pdf-lib": "^1.17.1"
+  }
+}
