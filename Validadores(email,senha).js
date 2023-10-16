@@ -2,24 +2,20 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 
-
 app.use(bodyParser.json());
-
 
 app.post('/cadastrar', (req, res) => {
     const { email, senha } = req.body;
 
-    
     const regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
-    
     if (!regexEmail.test(email)) {
-        return res.status(400).json({ error: 'Por favor, insira um email válido.' });
+        return res.status(400).json({ error: 'Insira um email válido.' });
     }
 
     
-    if (senha.length < 8) {
-        return res.status(400).json({ error: 'A senha deve conter pelo menos 8 caracteres.' });
+    if (senha.length < 8 || !/[A-Z]/.test(senha) || !/[a-z]/.test(senha) || !/[@#$%^&+=]/.test(senha)) {
+        return res.status(400).json({ error: 'Senha inválida. Use pelo menos 8 caracteres, incluindo uma letra maiúscula, uma minúscula e um caractere especial.' });
     }
 
     // Simulação de cadastro em banco de dados
@@ -28,7 +24,6 @@ app.post('/cadastrar', (req, res) => {
         // Outros dados do usuário
     };
 
-    
     return res.status(200).json({ message: 'Cadastro realizado com sucesso.', usuario });
 });
 
