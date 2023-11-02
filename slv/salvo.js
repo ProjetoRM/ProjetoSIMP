@@ -25,7 +25,7 @@ app.post('/adicionar-assinatura', upload.single('pdfFile'), async (req, res) => 
         const pages = pdfDoc.getPages();
 
         // aqui define o que vai ser assinado.
-        const signatureText = 'Assinado por: olá';
+        const signatureText = 'Assinado por: Gustavo Gouveia';
 
         //aqui adiciona a assinatura e define o local onde ela fica também
         for (const page of pages) {
@@ -60,4 +60,8 @@ app.post('/adicionar-assinatura', upload.single('pdfFile'), async (req, res) => 
 
 app.listen(PORT, () => {
     console.log(`Servidor rodando na porta ${PORT}`);
+});
+
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/public/teste.html');
 });
