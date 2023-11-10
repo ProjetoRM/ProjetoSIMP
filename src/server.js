@@ -20,12 +20,12 @@ const prisma = new PrismaClient();
 
 app.get('/', (req, res) => {
     
-    res.sendFile(path.join(__dirname, 'public', 'teste-cadastro.html'));
+    res.sendFile(path.join(__dirname, 'public', 'teste.html'));
 });
 // 
 app.post('/signup', async (req, res) => {
     try {
-        const { nome, sobrenome, email, senha } = req.body;
+        const { nome, cpf, email, senha } = req.body;
 
         console.log('Dados do formulário:', req.body);
 
@@ -44,7 +44,7 @@ app.post('/signup', async (req, res) => {
         const user = await prisma.user.create({
             data: {
                 nome,
-                sobrenome,
+                cpf,
                 email,
                 senha: hashedPassword,
             },
@@ -96,14 +96,15 @@ app.post('/adicionar-assinatura', upload.single('pdfFile'), async (req, res) => 
         // aqui define o que vai ser assinado.
         const signatureText = 'Assinado por: Gustavo Gouveia';
 
-        //aqui adiciona a assinatura e define o local onde ela fica também
+        const margin = 30; 
+
         for (const page of pages) {
             const { width, height } = page.getSize();
             const fontSize = 12;
-
-            const textWidth = (width - fontSize * signatureText.length) / 2;
-            const textHeight = (height - fontSize) / 2;
-
+        
+            const textWidth = width - margin - fontSize * signatureText.length;
+            const textHeight = margin;
+        
             page.drawText(signatureText, {
                 x: textWidth,
                 y: textHeight,
