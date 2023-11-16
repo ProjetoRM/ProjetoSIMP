@@ -105,7 +105,7 @@ header h1{
     border-radius: 9px;
 }
 
-header p1{
+header p {
 
     margin-bottom: 2em;
 }
@@ -135,7 +135,7 @@ header p1{
 
 }
 
-#sobre p1, p2, p3 {
+#sobre p {
    
     margin-bottom: 2.5em;
     max-width: 1000px;
@@ -158,7 +158,7 @@ header p1{
     color: #3F55A3;
 }
 
-#contato p4 {
+#contato p {
     text-align: center;
     margin-bottom: 2.5em;
     max-width: 1000px;
@@ -219,7 +219,7 @@ header p1{
     font-size: 11pt;
 }
 
-#form nav p4, p5, p6, p7, p8, p9 {
+#form nav p{
     display: flex;
     flex-direction: column;
     color: #3F55A3;
