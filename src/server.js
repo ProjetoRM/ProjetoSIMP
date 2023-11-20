@@ -20,7 +20,7 @@ const prisma = new PrismaClient();
 
 app.get('/', (req, res) => {
     
-    res.sendFile(path.join(__dirname, 'public', 'teste-cadastro.html'));
+    res.sendFile(path.join(__dirname, 'public/front', 'cadastro.html'));
 });
 // 
 app.post('/signup', async (req, res) => {

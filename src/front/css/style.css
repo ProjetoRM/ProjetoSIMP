@@ -105,6 +105,10 @@ header h1{
     border-radius: 9px;
 }
 
+.botao:hover {
+    background: #6678b9;
+}
+
 header p {
 
     margin-bottom: 2em;
@@ -235,7 +239,7 @@ header p {
 #form button {
     margin-top: 10%;
     background: #3F55A3;
-    width: min-content;
+    width: 60%;
     height: 40px;
     border: #9A9595;
     font-size: 0.9em;
@@ -246,7 +250,16 @@ header p {
 }
 
 #form button:hover {
-    background: #5969a1;
+    background: #6678b9;
+}
+
+/*Login*/
+
+.login #form button {
+    font-size: 1.2em;
+    width: 60%;
+
+
 }
 
 /*Minha Conta*/
@@ -266,6 +279,10 @@ header p {
         margin-bottom: 10%;
 }
 
+.conta button:hover {
+
+    background: #6678b9;
+}
 
 .conta {
     text-align: center;
@@ -282,7 +299,7 @@ header p {
 
 .conta p {
     font-size: 1.0em;
-    color: #575555d0
+    color: #575555ec
 }
 
 .conta h2 {
@@ -304,10 +321,7 @@ header p {
 
 .conta #signedDocsTab {
     background-color: #EDECEC;
-    
 }
-
-
 
 /*Rodapé*/
 footer {
