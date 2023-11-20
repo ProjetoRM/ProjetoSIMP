@@ -45,14 +45,11 @@
 
         <label for="senha">Senha:</label>
         <div class="input">
-            <input type="password" id="senha" name="senha" pattern="^(?=.*[a-zà-ú])(?=.*[A-ZÀ-Ú])(?=.*\d)(?=.*[@$!%*?&])[A-Za-zÀ-Ú\d@$!%*?&]{8,}$" required>
+            <input type="password" id="senha" name="senha" minlength="8" required>
         </div>
         <nav>
         <p5>*No mínimo 8 caracteres;</p5>
-        <p6>*Incluir uma letra maíuscula:</p6>
-        <p7>*Incluir uma letra minúscula;</p7>
-        <p8>*Incluir um símbolo;</p8>
-        <p9>*Incluir um número.</p9>
+    
         </nav>
 
         <div id="botao">

@@ -223,7 +223,7 @@ header p {
     display: flex;
     flex-direction: column;
     color: #3F55A3;
-    font-size: 0.6em;
+    font-size: 0.3em;
 }
 
 #form .botao {
