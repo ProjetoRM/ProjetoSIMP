@@ -253,6 +253,43 @@ header p {
     background: #6678b9;
 }
 
+#form button#bottom {
+    width: 20px;
+    height: 20px;
+    padding: 3px;
+    border: none;
+    background-color: #ffffff; 
+    line-height: 0;
+    position: absolute;
+    right: 70px;
+    top: 60%;
+}
+
+#form button#bottom i {
+    font-size: 14px; 
+    color: black; 
+}
+
+#form button#bottomm {
+    width: 20px;
+    height: 20px;
+    padding: 3px;
+    border: none;
+    background-color: #ffffff; 
+    line-height: 0;
+    position: absolute;
+    right: 70px;
+    top: 50%;
+}
+
+#form button#bottomm i {
+    font-size: 14px; 
+    color: black; 
+}
+
+
+
+
 /*Login*/
 
 .login #form button {
@@ -386,4 +423,5 @@ footer a {
         width: 100%;
 
     }
+    
 }

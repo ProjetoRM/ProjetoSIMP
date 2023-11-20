@@ -1,4 +1,5 @@
 const express = require('express');
+const session = require('express-session');
 const bodyParser = require('body-parser');
 const multer = require('multer');
 const { PDFDocument, rgb } = require('pdf-lib');
@@ -16,29 +17,32 @@ const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
 const prisma = new PrismaClient();
+app.use(session({
+    secret: '123', 
+    resave: false,
+    saveUninitialized: true,
+  }));
 
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
     
-    res.sendFile(path.join(__dirname, 'public', 'cadastro.html'));
+    res.sendFile(path.join(__dirname, 'public/pages', 'index.html'));
 });
 // 
 app.post('/signup', async (req, res) => {
     try {
         const { nome, cpf, email, senha } = req.body;
 
-        console.log('Dados do formulário:', req.body);
-
         const existingUser = await prisma.user.findUnique({
             where: { email: req.body.email }, 
         });
-        
 
         if (existingUser) {
             return res.status(400).json({ message: 'Email já em uso.' });
         }
 
-        // faz o hash da senha antes de salvar no db 
+   
         const hashedPassword = await bcrypt.hash(senha, 10);
 
         const user = await prisma.user.create({
@@ -50,7 +54,8 @@ app.post('/signup', async (req, res) => {
             },
         });
 
-        res.json({ message: 'Cadastro bem-sucedido', user });
+        
+        res.send(`<script>alert('Cadastro bem-sucedido'); window.location.href = '/';</script>`);
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: 'Erro no servidor' });
@@ -62,26 +67,37 @@ app.post('/login', async (req, res) => {
     try {
         const { email, senha } = req.body;
 
+        console.log('Email recebido:', email);
+
         const user = await prisma.user.findUnique({
             where: { email },
         });
 
-        if (!user) {
-            return res.status(401).json({ message: 'Credenciais inválidas.' });
+        if (!user || !(await bcrypt.compare(senha, user.senha))) {
+            console.log('Credenciais inválidas');
+            return res.status(401).json({ message: 'Email ou senha inválidos.' });
         }
 
-        const passwordMatch = await bcrypt.compare(senha, user.senha);
+        console.log('Login bem-sucedido para:', email);
+        res.status(200).json({ message: 'Login bem-sucedido.' });
 
-        if (!passwordMatch) {
-            return res.status(401).json({ message: 'Credenciais inválidas.' });
-        }
-
-        res.json({ message: 'Login bem-sucedido', user });
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: 'Erro no servidor' });
+        console.error('Erro no login:', error);
+        res.status(500).json({ message: 'Erro no login. Tente novamente.' });
     }
 });
+
+        app.post('/logout', (req, res) => {
+            
+            req.session.destroy((err) => {
+            if (err) {
+                console.error('Erro ao fazer logout:', err);
+                return res.status(500).json({ message: 'Erro ao fazer logout' });
+            }
+            
+            res.redirect('/pages/login.html');
+            });
+        });
 
 
 

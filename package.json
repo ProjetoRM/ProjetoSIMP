@@ -6,7 +6,6 @@
   "main": "Validadores(email,senha).js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
-    
   },
   "keywords": [],
   "author": "",
@@ -18,6 +17,7 @@
     "body-parser": "^1.20.2",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
+    "express-session": "^1.17.3",
     "fontkit": "^2.0.2",
     "fs": "^0.0.1-security",
     "multer": "^1.4.5-lts.1",
