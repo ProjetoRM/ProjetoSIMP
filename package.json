@@ -3,8 +3,10 @@
   "name": "projetosimp",
   "version": "1.0.0",
   "description": "",
-  "main": "Validadores(email,senha).js",
+  "main": "src/server.js",
   "scripts": {
+    "build": "mkdir -p dist && cp -r src/* dist/",
+    "start": "node dist/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

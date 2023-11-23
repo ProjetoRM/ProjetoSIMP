@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro e Login</title>
+</head>
+<body>
+  <h1>Cadastro</h1>
+  <form action="/signup" method="post">
+    <input type="text" name="nome" placeholder="Nome" required>
+    <input type="text" name="cpf" placeholder="Cpf" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="password" name="senha" placeholder="Senha" required>
+    <button type="submit">Cadastrar</button>
+  </form>
+
+  <h1>Login</h1>
+  <form action="/login" method="post">
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="password" name="senha" placeholder="Senha" required>
+    <button type="submit">Login</button>
+  </form>
+</body>
+</html>

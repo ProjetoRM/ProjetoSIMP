@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Krona+One" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="icon" href="../img/icon.png">
+    <title>Login</title>
+</head>
+
+<body class="login">
+    <div>
+        <a href="index.html"> <img src="../img/nomelogo.png" alt="logonome" width=180 height=80</a>
+        <ul>
+            <a></a>
+            <li><a href="../pages/index.html#sobre">Sobre</a></li>
+            <li><a href="../pages/index.html#contato">Entre em contato</a></li>
+        </ul>
+    </div>
+
+    <section id="form">
+        <form action="/login" method="post">
+            <h2 class="title">Login</h2>
+
+            <label for="email">E-mail:</label>
+            <div class="input">
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <label for="senha">Senha:</label>
+            <div class="input">
+                <input type="password" id="senha" name="senha" minlength="8" required>
+                <button type="button" onclick="mostrarSenha()" id="bottomm">
+                    <i id="eyeIcon" class="far fa-eye"></i>
+                </button>
+            </div>
+
+           
+            <div id="error-message" style="display: none; color: red;"></div>
+
+            <div id="botao">
+                <button type="submit">Entrar</button>
+            </div>
+        </form>
+
+        <script>
+            function mostrarSenha() {
+                const senhaInput = document.getElementById("senha");
+                const eyeIcon = document.getElementById("eyeIcon");
+
+                if (senhaInput.type === "password") {
+                    senhaInput.type = "text";
+                    eyeIcon.classList.remove("fa-eye");
+                    eyeIcon.classList.add("fa-eye-slash"); 
+                } else {
+                    senhaInput.type = "password";
+                    eyeIcon.classList.remove("fa-eye-slash");
+                    eyeIcon.classList.add("fa-eye");
+                }
+            }
+
+            
+            function exibirAlerta(message) {
+                alert(message);
+            }
+
+            
+            document.querySelector('form').addEventListener('submit', async function (event) {
+                event.preventDefault();
+
+                const email = document.getElementById('email').value;
+                const senha = document.getElementById('senha').value;
+
+                try {
+                    const response = await fetch('/login', {
+                        method: 'POST',
+                        body: new URLSearchParams({ email, senha }), 
+                    });
+
+                    const data = await response.json();
+
+                    if (!response.ok) {
+                        exibirAlerta(data.message); 
+                    } else {
+                        window.location.href = '/pages/homelogin.html'; 
+                    }
+                } catch (error) {
+                    console.error('Erro ao fazer login:', error);
+                   
+                }
+            });
+        </script>
+    </section>
+</body>
+</html>

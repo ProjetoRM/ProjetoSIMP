@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Krona+One" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="icon" href="../img/icon.png">
+    <link rel="stylesheet" type="conta/css" href="../css/style.css"
+        <title></title>
+</head>
+<body class="conta">
+    
+    <title>Minha Conta</title>
+    <div>
+        <a href="homelogin.html"> <img src="../img/nomelogo.png" alt="logonome" width=180 height=80</a>
+        <ul>
+            <a></a>
+            <li><a href="./pages/homelogin.html#sobre">Sobre</a></li> 
+            <li><a href="../pages/homelogin.html#contato">Entre em contato</a></li>
+            <li><a href="minhaconta.html" class="botao"> Minha Conta </a></li>
+            
+            <li><a href="index.html">Sair</a></li>
+        </ul>
+    </div>
+
+    <h2>Olá contador,</h2>
+    <p>Nesse ambiente você poderá anexar seu documento e modificá-lo para adicionar sua assinatura digital.</p>
+    <button class="tab-btn" onclick="openTab('previewTab')">Pré-Visualização</button>
+    <button class="tab-btn" onclick="openTab('signedDocsTab')">Documentos Assinados</button>
+    
+    
+    <div id="previewTab" class="tab">
+        <form action="/adicionar-assinatura" method="POST" enctype="multipart/form-data">
+            <label for="pdfFile">Selecione um arquivo PDF:</label>
+            <input type="file" id="pdfFile" name="pdfFile" accept=".pdf">
+            <br>
+            <br>
+            <button type="submit">Adicionar Assinatura</button>
+        </form>
+    </div>
+
+    
+    <div id="signedDocsTab" class="tab">
+        <h3>Documentos Assinados</h3>
+        
+    </div>
+
+    <script>
+        
+        function openTab(tabName) {
+            var i, tabContent, tabBtns;
+            tabContent = document.getElementsByClassName('tab');
+            for (i = 0; i < tabContent.length; i++) {
+                tabContent[i].style.display = 'none';
+            }
+            tabBtns = document.getElementsByClassName('tab-btn');
+            for (i = 0; i < tabBtns.length; i++) {
+                tabBtns[i].classList.remove('active');
+            }
+            document.getElementById(tabName).style.display = 'block';
+        }
+    </script>
+
+<footer>
+    <a href="#topo"><img src="../img/nomelogo.png" alt="logonome" width=180 height=80</a>
+</footer>
+
+</body>
+</html>
