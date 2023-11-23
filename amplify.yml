@@ -7,7 +7,7 @@ frontend:
       commands:
         - npm run build
   artifacts:
-    baseDirectory: dist
+    baseDirectory: dist/public/pages
     files:
       - '**/*'
   cache:
