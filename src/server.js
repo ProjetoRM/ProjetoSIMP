@@ -6,6 +6,7 @@ const { PDFDocument, rgb } = require('pdf-lib');
 const { PrismaClient } = require('@prisma/client');
 const bcrypt = require('bcrypt');
 const path = require('path');
+const cors = require('cors');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -23,12 +24,15 @@ app.use(session({
     saveUninitialized: true,
   }));
 
+app.use(cors({
+    
+}))
 
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
     
-    res.sendFile(path.join(__dirname, 'public/pages', 'index.html'));
+    res.sendFile(path.join(__dirname, '', 'index.html'));
 });
 // 
 app.post('/signup', async (req, res) => {
