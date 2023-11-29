@@ -11,7 +11,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static('public'));
+app.use(express.static('dist/public'));
 
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
@@ -23,11 +23,11 @@ app.use(session({
     saveUninitialized: true,
   }));
 
-app.use(express.static(path.join(__dirname, 'public')));
+//app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
     
-    res.sendFile(path.join(__dirname, 'public/pages', 'index.html'));
+    res.sendFile(path.join(__dirname, 'dist/public/pages', 'index.html'));
 });
 // 
 app.post('/signup', async (req, res) => {
