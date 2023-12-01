@@ -19,7 +19,9 @@ const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 const prisma = new PrismaClient();
 
-app.use(cors({}));
+app.use(cors({
+  origin: 'https://simp-project-tre9.vercel.app/'
+}));
 // app.use(express.static(path.join(__dirname, "src")));
 
 // app.get("/", (req, res) => {
