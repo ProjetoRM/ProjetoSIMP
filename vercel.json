@@ -1,0 +1,24 @@
+{
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "/$1",
+        "headers": { "cache-control": "public, max-age=0, must-revalidate" }
+      }
+    ],
+    "builds": [
+      {
+        "src": "src/*.html",
+        "use": "@now/static"
+      },
+      {
+        "src": "src/css/**",
+        "use": "@now/static"
+      },
+      {
+        "src": "src/img/**",
+        "use": "@now/static"
+      }
+    ]
+  }
+  
