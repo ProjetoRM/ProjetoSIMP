@@ -86,9 +86,7 @@ app.post("/login", async (req, res) => {
       where: { email },
     });
 
-    !(await bcrypt.compare(senha, user.senha));
-
-    if (!user) {
+    if (!user || !(await bcrypt.compare(senha, user.senha))) {
       return res.status(401).json({ message: "Email ou senha inválidos." });
     }
 
