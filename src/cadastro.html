@@ -23,7 +23,7 @@
 
     <section id="form">
 
-        <form action="http://3.80.69.168:5000/signup" method="POST">
+        <form action="https://api.gustavogouveia.tech/signup" method="POST">
         <h2 class="title">Cadastre-se</h2>
 
         <label for="nome">Nome:</label>
@@ -95,7 +95,7 @@
             const senha = document.getElementById('senha').value;
     
             try {
-                const response = await fetch('http://3.80.69.168:5000/signup', {
+                const response = await fetch('https://api.gustavogouveia.tech/signup', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
