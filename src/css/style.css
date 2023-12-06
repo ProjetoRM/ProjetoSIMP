@@ -179,6 +179,15 @@ header p {
 
 /*Tela de Cadastro*/
 
+.erro {
+    margin-top: 5px;
+    padding: 8px;
+    border-radius: 5px;
+    background-color: #ffcccc;
+    color: #cc0000;
+    font-size: 14px;
+  }
+
 #form {
     color: #9A9595;
     position: relative;
