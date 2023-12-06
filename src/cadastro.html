@@ -122,11 +122,14 @@
     });
 
     function mostrarMensagemErro(mensagem) {
-        const mensagemErro = document.createElement('p');
-        mensagemErro.textContent = mensagem;
-        mensagemErro.classList.add('erro'); // Você pode adicionar uma classe para estilizar a mensagem
-        document.getElementById('form').appendChild(mensagemErro);
-    }
+    const mensagemErro = document.createElement('p');
+    mensagemErro.textContent = mensagem;
+
+    mensagemErro.classList.add('erro');
+    const formSection = document.getElementById('form');
+    formSection.appendChild(mensagemErro);
+}
+
 </script>
     
 </body>
