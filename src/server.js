@@ -47,7 +47,7 @@ app.post("/signup", async (req, res) => {
     });
 
     if (existingEmail) {
-      return res.status(400).json({ message: "Email já em uso." });
+      return res.status(400).json({ message: "Email já em uso.", field: "email" });
     }
 
     const existingCpf = await prisma.user.findUnique({
@@ -55,7 +55,7 @@ app.post("/signup", async (req, res) => {
     });
 
     if (existingCpf) {
-      return res.status(400).json({ message: "CPF já em uso." });
+      return res.status(400).json({ message: "CPF já em uso.", field: "cpf" });
     }
 
     const hashedPassword = await bcrypt.hash(senha, 10);
@@ -77,6 +77,7 @@ app.post("/signup", async (req, res) => {
     res.status(500).json({ message: "Erro no servidor" });
   }
 });
+
 
 app.post("/login", async (req, res) => {
   try {
