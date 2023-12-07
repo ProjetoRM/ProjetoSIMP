@@ -22,7 +22,7 @@
     </div>
 
     <section id="form">
-        <form action="https://api.gustavogouveia.tech/signup" method="POST">
+        <form action="https://api.gustavogouveia.tech/signup" method="POST" id="signup">
             <h2 class="title">Cadastre-se</h2>
 
             <label for="nome">Nome:</label>
@@ -88,7 +88,7 @@
             }
         }
 
-        document.querySelector("form").addEventListener("submit", async function (event) {
+        document.getElementById("signup").addEventListener("submit", async function (event) {
             event.preventDefault();
 
             const nome = document.getElementById("nome").value;
